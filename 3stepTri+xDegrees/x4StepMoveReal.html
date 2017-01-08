@@ -1,0 +1,685 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>RmzSlider - Introduction</title>
+	<meta http-equiv="imagetoolbar" content="no" />
+	
+	<script src='jquery-1.5.2.min.js'></script>
+	<script src="jquery.color.min.js" type="text/javascript"></script>
+	<script src="jquery.rmzslider.js" type="text/javascript"></script>
+	<script src="jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+		<script src="jstat-1.0.0.min.js" type="text/javascript"></script>
+		
+	
+    <script class="jsbin" src="highcharts.src.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link type="text/css" href="css/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
+	
+	
+	
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="excanvas.min.js"></script><![endif]-->
+    
+    <script language="javascript" type="text/javascript" src="jquery.flot.min.js"></script>
+	
+	<style type="text/css">
+		ul.sliders { width: 740px; height: 50px; margin: 0 auto; padding: 0; list-style: none; }
+		ul.sliders li { margin: 0 20px 0 0; padding: 0; width:  210px; float: left; }
+		.handle { cursor: pointer; }
+	
+		/* EXAMPLES 01 */
+		/* ============================================================== */
+		.slider {
+			background: url(rule.png) 0 0 no-repeat;
+			width: 433px; height: 37px;
+		}
+		
+		.slider .handle {
+			/* background: url(slider_tile_a.png) *-76px -19px no-repeat;
+			 width: 7px; height: 19px; */
+			 background: url(dot.gif) 0 0 no-repeat;
+			 width: 15px; height: 30px;
+		}
+		
+		
+		.slider .button {
+			background: url(slider_tile_a.png) 0 -19px no-repeat;
+			width: 19px; height: 19px;
+			cursor: pointer;
+		}
+		
+		.slider div.button_right { background-position: -38px -19px; }
+		.slider div.button_left:hover { background-position: -19px -19px; }
+		.slider div.button_right:hover { background-position: -57px -19px; }
+		/* .slider .handle:hover { background-position: -83px -19px; }
+		.slider .handle.active { background-position: -90px -19px; }  */
+		
+		
+		
+		/* EXAMPLES 02 */
+		/* ============================================================== */
+		.slidersb input { width: 50px; border: 1px solid silver; margin: 5px 0 0 50px; text-align: center; }
+		
+		.sliderb {
+			background: url(slider_tile_b.png) 0 0 no-repeat;
+			width: 15px; height: 150px;
+		}
+		
+		.sliderb .handle {
+			background: url(slider_tile_b.png) 0 -15px no-repeat;
+			width: 15px; height: 15px;
+		}
+		
+		.sliderb .handle:hover { background-position: -30px -15px; }
+		.sliderb .handle.active { background-position: -15px -15px; }
+
+		/* Document style*/
+		/* ============================================================== */
+
+body {	
+	background: #f1f1f1; 
+	background-position: center top; 
+	height: 100%;
+	text-align: center;
+	margin: 20px 20px 0px 0px;
+	padding: 0;
+	font-family:  "Trebuchet MS", Trebuchet, verdana, Helvetica, sans-serif;
+	color: black;
+	font-size: 85%;
+
+}
+
+#container {	
+	
+	border: 1px solid #666;
+	width: 910px;
+	margin: 0 auto;
+	text-align: left;
+	padding: 20px 20px 20px 20px;
+	background: #fff;
+}
+.question-cont {
+	border: 0px solid #000;
+	margin: 10px 0px 0px 0px;
+	text-align: left;
+	padding: 0px;
+	clear:left;
+	float:left;
+	width:870px;
+}
+
+.question-text {
+	width: 850px;
+	font-size: 110%;
+	font-weight: bold;
+	color: #333;
+	padding: 10px 0px 10px 20px;
+	border: none;
+	background-color: #f0f0f0;
+	margin: 0px 0px 20px 0px;
+}
+		
+		
+	
+
+	</style>
+</head>
+<body>
+
+
+
+
+<br>
+<div id="container" >
+
+<div style="clear: both;"></div>
+
+<div id="main_cont">
+<div class="free-text"></div>
+
+	<div class="question-text">
+	 What do you think will be the high temperature in Central Park (New York) on May 1st, 2012?
+
+	</div>
+
+
+<hr />
+<!-- ======================================================================= -->
+
+     <div id="container" style="height: 300px; width:470px;"></div>
+<!-- Chart! 
+
+		<div id="plot" style="width:470px;height:200px;"></div>
+-->
+
+<hr />
+<!-- ======================================================================= -->
+
+ <div style="clear:both"> 
+			<div class="rule-outer" style="width:570px; height: 200px;  float:left;position:relative; margin-top:55px ">
+			Please click then move the sliders to indicate a range.
+
+			  <br>
+			  <table>
+			   <tr>
+			   <td id="min"> 		</td>
+			 <td> 			   <div id="slider3" class="slider"> </div>  </td>	
+			 <td id="max">        </td>
+             </tr>			 
+			  </table>
+				<br>
+			
+		The high temperature will be between: <input type="text" id="sliderb_input_0" value ="" style="border:none; width:25px" ></input>	 F°
+	    and <input type="text" id="sliderb_input_2" value ="" style="border:none; width:25px" ></input>	 F°
+		
+		<div style = "margin-top:15px; border-top:1px solid black; padding-top:15px" >
+		Click then move a third slider to show your best estimate within this range. If you want to choose the exact middle of the range, click the box below. <br>
+		<input type="button" value ="Reset to middle" onClick="resetMiddle();" > Best estimate: <input type="text" id="sliderb_input_1" value ="" style="border:none; width:25px" ></input>	
+		
+		</div>
+		
+	    </div >
+		
+	<!--	 Confidence  
+		<div class="box"  style="border-left:1px solid black; width:220px; margin-left:0px; padding-left:15px; float:left;position:relative; height:250px;">
+			<div class="demo">
+
+			 <table>
+			   <tr>	
+				<tr>
+				<td colspan=2>
+				
+
+				
+				</td>
+				</tr>
+			 <td> 	 <div id="slider-vertical" style="float:left;height:180px;"></div> </td>	
+			 <td >  
+			       <p style="margin-left:40px">
+				    What is the probability that the high temperature will fall between  <span id="lb"> </span>  and <span id="ub"> </span> ? 
+					<br>
+                 
+                    <span id="amount" style="display:none"> </span> 
+                    </p>   
+			</td>
+             </tr>			 
+			  </table>
+			</div>
+	 </div>	  
+	<!-- ======================================================================= -->	
+<hr />
+		
+	
+
+</div>
+</div>	
+
+
+
+
+
+</head>
+<body>
+
+
+	
+	<script type="text/javascript" language="javascript">
+	<!--
+	
+	(function(Highcharts) {
+    var addEvent = Highcharts.addEvent,
+        each = Highcharts.each;
+    
+    Highcharts.Chart.prototype.callbacks.push(function (chart) {        
+        
+        var container = chart.container,
+            dragPoint,
+            dragY,
+            dragPlotY;
+        
+        chart.redraw(); // kill animation (why was this again?)
+        
+        addEvent(container, 'mousedown', function(e) {
+            var hoverPoint = chart.hoverPoint;
+            if (hoverPoint && hoverPoint.series.options.draggable) {
+                dragPoint = hoverPoint;
+                dragY = e.pageY;
+                dragPlotY = dragPoint.plotY + (chart.plotHeight - (dragPoint.yBottom || chart.plotHeight));
+				// dragPoint.firePointEvent('start');
+            }
+        });
+        
+        addEvent(container, 'mousemove', function(e) {
+            if (dragPoint) {
+                var deltaY = dragY - e.pageY,
+                    newPlotY = chart.plotHeight - dragPlotY + deltaY,
+                    newY = dragPoint.series.yAxis.translate(newPlotY, true),
+                    series = dragPoint.series;
+                dragPoint.update(newY, false);
+                chart.tooltip.refresh(dragPoint);
+                if (series.stackKey) {
+                    chart.redraw();
+                } else {
+                    series.redraw();
+                }
+            }
+        });
+        
+        function drop(e) {
+            if (dragPoint) {
+                var deltaY = dragY - e.pageY,
+                    newPlotY = chart.plotHeight - dragPlotY + deltaY,
+                    newY = dragPoint.series.yAxis.translate(newPlotY, true);   
+
+			  	var value = Highcharts.numberFormat(deltaY, 2);						
+				document.getElementById("start").value = value;
+                
+                dragPoint.firePointEvent('drop2');
+                dragPoint.update(newY);
+                
+                dragPoint = dragY = undefined;
+            }
+        }
+	
+		
+        addEvent(document, 'mouseup', drop);
+        addEvent(container, 'mouseleave', drop);
+	
+		
+    });
+    
+
+    
+})(Highcharts);
+
+
+
+
+
+	
+
+		
+		 // depend on question!!!
+	   var min =50;
+	   var max = 70;
+	   var range = 100;
+	   var diff = max-min;
+	   var unit = 'F°';
+	   var unit2 = '%';
+	   var dist;
+	   var plot;
+	   
+	   var currentMin;
+	   var currentMax;
+	   var currentMid;
+	   var currentConfidence = 75;
+	   
+	     window.onload = function () {
+		  initQuestion ();
+		  initSlider();
+		 }
+	
+	function initQuestion (){
+	currentMin = min;
+	currentMax = max;
+//	document.getElementById('min').innerHTML=min +' '+ unit;
+	//document.getElementById('max').innerHTML=max +' '+ unit;
+	
+	}
+	
+			function reversePosition(value){
+		     return (value -min)* range /diff;
+		   }
+		   
+			function resetMiddle(){			
+	        var newV = ( reversePosition(currentMin) + reversePosition(currentMax) )/2;
+	  		$("#slider3").find(".handle_num_"+1).trigger("setvalue", {value:newV,  animate: 1});
+	        }
+
+			 function initSlider(){
+		     // set the middle to the right
+		    $("#slider3").find(".handle_num_"+1).trigger("setvalue", {value:reversePosition(max-1),  animate: 1});
+		   }	
+	
+		(function($){
+		
+		  dist = new NormalDistribution(0,1);
+       //   plot = new DistributionPlot('plot', dist);
+		  
+		  
+		  
+	 function calc() {
+		   var ub = currentMax;
+            var lb = currentMin;
+			var pe = (ub+lb) /2; // mean!				
+			var confidence = currentConfidence;	
+			var sigma = Math.abs(getSigma(lb, ub, confidence) );
+			var dist = new NormalDistribution(pe,sigma);
+			var range = new Range(min, max, 1000);
+			plot.setDistribution(dist, range);
+		}
+		
+		function triangular(){
+				var mean = (currentMin + currentMax) / 2;
+				var diff = currentMax - currentMin;
+				var height = 2/diff;
+			  
+				var d2 = [[currentMin, 0], [currentMid, height], [currentMax, 0] ];
+				var options = {
+					series: { shadowSize: 0 }, // drawing is faster without shadows
+					xaxis: { min: min, max: max  }
+				};
+				
+				$.plot($("#plot"), [ d2],options
+					
+				);
+			}
+			
+			function triangular2(){
+			
+			    var conf = currentConfidence /100;
+			    var outC = (1- conf)/2; // on both sides!
+				
+				var left = currentMin -min ;
+				var leftHeight = outC*2 / left;
+
+				var right = max-currentMax ;
+				var rightHeight = outC*2 / right;
+				
+				var diff = currentMax - currentMin;
+				
+				var Crest;
+				var midHeight;
+				if(rightHeight > leftHeight){  /* might need some rework here .. it does not sum up to 1 !!*/
+				 Crest = conf - (leftHeight * diff);
+				 midHeight = Crest*2/diff + rightHeight;
+				}
+				else{
+				  Crest = conf - (rightHeight * diff);
+				   midHeight = Crest*2/diff + leftHeight;
+				}
+				
+			  
+				var d2 = [[min, 0],[currentMin, leftHeight], [currentMid, midHeight], [currentMax, rightHeight], [max, 0] ];
+				var options = {
+					series: { shadowSize: 0 }, // drawing is faster without shadows
+					xaxis: { min: min, max: max  }
+				};
+				
+			//	$.plot($("#plot"), [ d2],options );
+		}
+		
+		
+		function getSigma( lower,  upper, confidence){
+           
+			     var mu = (upper + lower) /2;
+			     var a = upper - mu;     
+			     var diff2 = (upper-lower)/2;
+                  var b95 = diff2/confidence*95;
+                  var newup = upper + b95;
+                  var newlow = lower - b95;
+                  var stddv = (newup - newlow) /4;
+
+                    return stddv;   
+             }
+		  
+		  
+	/*
+	$(function() {
+		$( "#slider-vertical" ).slider({
+			orientation: "vertical",
+			range: "min",
+			min: 50,
+			max: 100,
+			slide: function( event, ui ) {
+			    document.getElementById('confidenceSlider').style.display='block';
+				 document.getElementById('amount').style.display='block';
+				document.getElementById('amount').innerHTML='Probability: ' +ui.value + ' ' + unit2;
+				currentConfidence = ui.value;
+				changeChart(currentMin, currentMid, currentMax);
+			}
+		});
+	
+	});   */
+	
+			
+           function getValue(value){
+		   
+		   		 var diff = max-min;
+				 var range = 100;
+			 return value/range *diff +min;	
+		   }
+				
+			function changeChart(v1, v2, v3){
+				currentMin = v1; //getValue(Number(v1));
+				currentMid = v2
+				currentMax =  v3; //getValue(Number(v2));
+		
+		
+		     
+		       // no more gimme normal!!
+			  // if(Math.round((currentMin + currentMax)/2) == Math.round(currentMid))
+		      // calc();
+			  // else
+			   triangular2();
+			   
+			}
+
+	
+	
+
+			$("#slider3").RmzSlider({
+				leftOffset: 3,
+				handleWidth: 7,
+				numHandles: 3,
+				handleCenter: 3,
+				hitMargin: 8,
+				addButtons: false,
+				
+			});
+			
+		/*	$("#slider3 .handle").each(function(n){
+			
+			$(this).bind("dragging", function(event, data){			
+			   changeChartByHandle(n, Math.round(data.value));			
+				}); 
+			});
+			*/
+			
+			$("#slider3").bind("sliderchanged", function(event, data){
+			   changeChart(getValue(data.handles[0].value),getValue(data.handles[1].value), getValue(data.handles[2].value));
+				
+			});
+			
+			$("#slider3 .handle").each(function(n){
+				$("#sliderb_input_"+n).val("");
+				$(this).bind("changed",function(event, data){//BIND CHANGED
+				
+					changeValue("#sliderb_input_"+n, Math.round(data.value))
+				}); 
+			});
+			
+				  function changeValue(ele, value){
+
+					   var newValue = getValue(value);		   
+					   // first input
+					   $(ele).val(newValue);
+					   // changing the Chart 
+					
+					  // then the other issues
+			  /*
+			      if(ele == '#sliderb_input_0'){  // change min!
+				  document.getElementById('lb').innerHTML= newValue  +' '+ unit;
+				  }
+				  if(ele == '#sliderb_input_1'){  // change max!
+				  document.getElementById('ub').innerHTML= newValue  +' '+ unit;
+				  }
+			   */
+				}
+				
+				
+				var chart = new Highcharts.Chart({
+
+
+    chart: {
+        renderTo: 'container',
+		type: 'spline',  // that is a start!
+        animation: false
+    },
+
+    xAxis: {
+        //categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+	  min:50,
+	 max:70
+    },
+	yAxis:{
+	 min:0,
+	 max:200
+	},
+        
+    plotOptions: {
+        series: {
+            cursor: 'ns-resize',
+            point: {
+                events: {
+				
+					start: function() {
+					    var value = Highcharts.numberFormat(this.y, 2);
+						
+						document.getElementById("start").value = value;
+						alert(value);
+						
+					},
+				
+                    drop2: function() {
+                       // $('#report').html(
+                       //     this.category + ' was set to ' + Highcharts.numberFormat(this.y, 2)
+
+                       // );
+						var delta = document.getElementById("start").value *-1
+						//	alert(delta);
+						// first get a certain category!
+						var value = Highcharts.numberFormat(this.y, 2);
+							if(this.id){
+							 
+							  var wurm = new Array();
+
+								wurm[0] = chart.get('1').y;
+								wurm[1] = chart.get('2').y;
+								wurm[2] = chart.get('3').y;
+								wurm[3] = chart.get('4').y;
+								wurm[4] = chart.get('5').y;
+								wurm[5] = chart.get('6').y;
+								wurm[6] = chart.get('7').y;
+								wurm[7] = chart.get('8').y;
+								wurm[8] = chart.get('9').y;
+								wurm[9] = chart.get('10').y;
+							 
+							  // ok which one is the highest?
+							  var largest = Math.max.apply(Math, wurm);
+							  var positionLargest;
+							  			//where is the largest..                    to the right or to the left? <-- does that matter?!
+										for (var i=0; i < wurm.length; i++) {
+											if (wurm[i] == largest) {
+											    positionLargest = i;
+											}
+								         }
+							  $('#report').html(
+                          'largest is '+ positionLargest
+
+							);
+							
+							var positionIncreased = parseInt(this.id);
+							
+							for (i = 1; i<4; i++){
+							
+							 //  height[positionIncreased+i] += delta/ Math.pow(2,i);
+							  if(positionIncreased+i < 11)
+							   if( chart.get(''+(positionIncreased+i)).y + delta/ Math.pow(2,i)> 0)
+							   chart.get(''+(positionIncreased+i)).y += delta/ Math.pow(2,i);
+							   else
+							    chart.get(''+(positionIncreased+i)).y  =0;
+							 //  height[positionIncreased-i] += delta/ Math.pow(2,i);
+							   if(positionIncreased-i > 0)
+								if( chart.get(''+(positionIncreased-i)).y + delta/ Math.pow(2,i)> 0)	
+							     chart.get(''+(positionIncreased-i)).y += delta/ Math.pow(2,i);
+								 else
+								 chart.get(''+(positionIncreased-i)).y  =0;
+							}
+							
+							// get sum!
+							var summ =0;
+							
+							for (var j=1; j < 11; j++) {											
+								summ =summ + chart.get(''+j).y;
+									
+							}
+							
+							$('#report').html(
+                          'sum is '+ summ
+							);
+							var newDelta=0;
+							for (var i=1; i < 11; i++) {
+							  chart.get(''+i).y = chart.get(''+i).y / summ;
+							}
+							
+							var summ2 =0;
+							
+							for (var j=1; j < 11; j++) {											
+								summ2 =summ2 + chart.get(''+j).y;
+									
+							}
+							$('#report2').html(
+                          'sum is '+ summ2
+							);
+							
+
+							}
+						
+						
+						
+                    }
+				
+                }
+            }
+        },
+        column: {
+            stacking: 'normal'
+        }
+    },
+    
+    tooltip: {
+       yDecimals: 2,
+	     formatter: function() {
+		 return false;
+		 }
+    }, 
+
+    series: [{
+       // data: [0, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1],
+	     // should sum up to 100!
+	  //  data: [{y: 0.4, id: '1'}, {y: 0.08, id: '2'}, {y: 0.15, id: '3'}, {y: 0.25, id: '4'}, {y: 0.30, id: '5'}, {y: 0.25, id: '6'}, {y: 0.18, id: '7'}, {y: 0.10, id: '8'}, {y: 0.08, id: '9'}, {y: 0.4, id: '10'}],
+    //  data :[{y:0.4,id: "52"},{y: 0.08, id: "60"}, {y: 0.5, id: "65"} ],
+	// x.. y
+	  data:[[50, 51.6], [55, 59.0], [59, 49.2], [65, 63.0], [67, 53.6]],
+				
+	  draggable: true
+    }]
+
+});
+		
+	  })(jQuery);
+
+		
+		
+	//-->
+	</script>
+
+
+	
+
+	
+
+</body>
+</html>

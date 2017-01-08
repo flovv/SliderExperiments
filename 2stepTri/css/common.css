@@ -1,0 +1,17 @@
+body { padding: 10px; padding-left: 20px; margin: 0; font-family: "Times New Roman", "Times", serif; font-size: 14px; }
+a:hover { text-decoration: none; }
+h1, h2, h3 { margin: 0 0 0 -10px; }
+h1 { padding: 0 0 10px 0; font-size: 30px; }
+h2 { padding: 15px 0 5px 0; font-size: 20px; }
+h3 { padding: 0 0 12px 0; font-size: 15px; clear: both;  }
+li h3 { color: green; padding-bottom: 5px; }
+textarea { border: 1px dotted silver; margin: 0; padding: 10px; }
+code { color: gray; }
+code strong { color: #000; }
+code em { color: maroon; }
+p { margin: 0; padding: 0 0 5px 0; }
+hr { clear: both; margin: 20px 0; }
+
+.examples h3 { margin-left: 0; }
+.examples p { padding-bottom: 10px; }
+.download, .download a { color: blue; }

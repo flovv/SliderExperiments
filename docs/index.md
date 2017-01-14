@@ -31,16 +31,12 @@ Slider 4 to Slider 6 have the same base code, the number of points which can be 
 ## Background
 Elicitation of probability distributions from laypeople is a challenging problem;
 
-a) laypeople rarely think in distributions.
-
-b) if they are forced to, they are usually overconfident in their estimates (distributions tend to be too narrow).
-
-c) there is limited research on how to structures UX interfaces to facilitate elicitation.
+* laypeople rarely think in distributions.
+* if they are forced to, they are usually overconfident in their estimates (distributions tend to be too narrow).
+* there is limited research on how to structures UX interfaces to facilitate elicitation.
 
 The interfaces above build on some established practices:
 
-a) they change the question to focus on distribution.
-
-b) they work step by step, trying to avoid ankering.
-
-c) they represent the distribution and changes to it in real-time.
+* they change the question to focus on distribution.
+* they work step by step, trying to avoid ankering.
+* they represent the distribution and changes to it in real-time.

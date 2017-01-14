@@ -28,6 +28,12 @@ Slider 6:
 
 Slider 4 to Slider 6 have the same base code, the number of points which can be manipulated in the y-direction is handed over by the parameter ("dof").
 
+## Screenshots
+![example1](https://raw.githubusercontent.com/flovv/SliderExperiments/master/docs/example1.jpg "Example for Slider 1 - Slider 3")
+
+![example2](https://raw.githubusercontent.com/flovv/SliderExperiments/master/docs/example2.jpg "Example for Slider 4 and Slider 6")
+
+
 ## Background
 Elicitation of probability distributions from laypeople is a challenging problem;
 
